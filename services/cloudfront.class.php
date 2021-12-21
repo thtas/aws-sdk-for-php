@@ -125,6 +125,8 @@ class AmazonCloudFront extends CFRuntime
 	 */
 	public function authenticate($operation, $payload)
 	{
+		$method_arguments = func_get_args();
+
 		// Extract data from payload
 		$querystring = null;
 		$opt = ($payload) ? $payload : array();
@@ -132,8 +134,6 @@ class AmazonCloudFront extends CFRuntime
 		$path = isset($opt['path']) ? $opt['path'] : null;
 		$xml = isset($opt['xml']) ? $opt['xml'] : null;
 		$etag = isset($opt['etag']) ? $opt['etag'] : null;
-
-		$method_arguments = func_get_args();
 
 		// Use the caching flow to determine if we need to do a round-trip to the server.
 		if ($this->use_cache_flow)

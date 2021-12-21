@@ -662,7 +662,7 @@ class RequestCore
 		}
 
 		// Handle open_basedir & safe mode
-		if (!ini_get('safe_mode') && !ini_get('open_basedir'))
+		if (!ini_get('open_basedir'))
 		{
 			curl_setopt($curl_handle, CURLOPT_FOLLOWLOCATION, true);
 		}

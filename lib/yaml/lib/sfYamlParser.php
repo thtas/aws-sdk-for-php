@@ -59,7 +59,7 @@ class sfYamlParser
     $this->currentLine = '';
     $this->lines = explode("\n", $this->cleanup($value));
 
-    if (function_exists('mb_internal_encoding') && ((int) ini_get('mbstring.func_overload')) & 2)
+    if (function_exists('mb_internal_encoding'))
     {
       $mbEncoding = mb_internal_encoding();
       mb_internal_encoding('ASCII');

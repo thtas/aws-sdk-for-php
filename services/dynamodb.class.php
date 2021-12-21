@@ -551,9 +551,10 @@ class AmazonDynamoDB extends CFRuntime
 	 */
 	public function binary_set($values)
 	{
+		$args = func_get_args();
 		if (is_scalar($values))
 		{
-			$values = func_get_args();
+			$values = $args;
 		}
 
 		return new DynamoDB_BinarySet($values);

@@ -537,6 +537,8 @@ class AmazonS3 extends CFRuntime
 		 * 	Tells authenticate() to return the cURL handle for the request instead of executing it.
 		 */
 
+		 $method_arguments = func_get_args();
+
 		// Rename variables (to overcome inheritence issues)
 		$bucket = $operation;
 		$opt = $payload;
@@ -551,8 +553,6 @@ class AmazonS3 extends CFRuntime
 
 		// Die if $opt isn't set.
 		if (!$opt) return false;
-
-		$method_arguments = func_get_args();
 
 		// Use the caching flow to determine if we need to do a round-trip to the server.
 		if ($this->use_cache_flow)

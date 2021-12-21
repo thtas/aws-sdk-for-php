@@ -859,8 +859,8 @@ class CFRuntime
 	 */
 	public function authenticate($operation, $payload)
 	{
-		$original_payload = $payload;
 		$method_arguments = func_get_args();
+		$original_payload = $payload;
 		$curlopts = array();
 		$return_curl_handle = false;
 
