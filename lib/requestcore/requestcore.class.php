@@ -613,7 +613,7 @@ class RequestCore
 	 * Prepares and adds the details of the cURL request. This can be passed along to a <php:curl_multi_exec()>
 	 * function.
 	 *
-	 * @return resource The handle for the cURL object.
+	 * @return CurlHandle the handle for the cURL object.
 	 */
 	public function prep_request()
 	{
@@ -787,8 +787,8 @@ class RequestCore
 			$this->response = $response;
 		}
 
-		// As long as this came back as a valid resource...
-		if (is_resource($this->curl_handle))
+		// curl_handle is no longer a resource, it is a CurlHandle object.
+		if ($this->curl_handle instanceof CurlHandle)
 		{
 			// Determine what's what.
 			$header_size = curl_getinfo($this->curl_handle, CURLINFO_HEADER_SIZE);
